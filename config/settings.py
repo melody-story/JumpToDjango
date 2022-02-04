@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions', # 데이터 베이스 필요
     'django.contrib.messages', 
     'django.contrib.staticfiles',
-    'pybo.apps.PyboConfig' # 앱생성 후 app.py의 클래스 추가
+    'pybo.apps.PyboConfig', # 앱생성 후 app.py의 클래스 추가
+    'common.apps.CommonConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,9 +121,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/dev/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 로그인 성공후 이동하는 URL
+LOGIN_REDIRECT_URL = '/'
+# 로그아웃시 이동하는 URL
+LOGOUT_REDIRECT_URL = '/'
